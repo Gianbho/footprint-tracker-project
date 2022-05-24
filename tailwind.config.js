@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      outlineWidth: {
+        '0': '0px',
+      },
       spacing: {
         '7/25': '29.2%',
       },
