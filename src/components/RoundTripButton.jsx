@@ -1,10 +1,23 @@
 import React from 'react'
-import {ReactComponent as RoundTripSVG} from '../assets/round-trip-svgrepo-com.svg'
+import roundTripImage from '../assets/round-trip-flight.png'
 
-const RoundTripButton = () => {
+const RoundTripButton = ({isRoundTrip, setIsRoundTrip}) => {
   return (
-    <div>
-        <RoundTripSVG />
+    <div className='h-14 w-14 rounded-full overflow-hidden shadow'>
+      <button 
+        onClick={(e) => {
+          if(!isRoundTrip) {
+            setIsRoundTrip(!isRoundTrip); 
+            e.currentTarget.firstChild.classList.replace('bg-blue-200', 'bg-red-200');
+            console.log(isRoundTrip);
+          } else {
+            setIsRoundTrip(!isRoundTrip);
+            e.currentTarget.firstChild.classList.replace('bg-red-200', 'bg-blue-200');
+            console.log(isRoundTrip);
+          }
+        }}>
+        <img className='h-14 w-14 bg-blue-200' src={roundTripImage} />
+      </button>
     </div>
   )
 }

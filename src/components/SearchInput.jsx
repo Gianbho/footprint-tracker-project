@@ -7,16 +7,14 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId}
 
     const ulElement = document.getElementById(ulId);
     const [isChoseTaken, setIsChoseTaken] = useState(false);
-    const inputMatches = (airport) => (searchAirport !== '') && (airport.code.toUpperCase().includes(searchAirport.toUpperCase()) || airport.name.toUpperCase().includes(searchAirport.toUpperCase()) || airport.city.toUpperCase().includes(searchAirport.toUpperCase())) && i < 3;
+    const inputMatches = (airport) => (searchAirport !== '') && (airport.code.toUpperCase().includes(searchAirport.toUpperCase()) || airport.name.toUpperCase().includes(searchAirport.toUpperCase()) || (airport.city.toUpperCase().includes(searchAirport.toUpperCase()) || airport?.state?.toUpperCase().includes(searchAirport.toUpperCase()))) && i < 10;
     
     const hideList = () => {
       ulElement?.classList.add('hidden');
-      ulElement?.classList.remove('flex-col', 'flex');
     };
 
     const showList = () => {
       ulElement?.classList.remove('hidden');
-      ulElement?.classList.add('flex', 'flex-col')
     };
 
     const handleBlur = () => {
@@ -48,10 +46,11 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId}
                 }}
           />
           <div className='relative w-full flex flex-col justify-center items-center'>
-            <ul id={ulId} className='w-40 selection'>
+            <ul id={ulId} className='hidden overflow-hidden overflow-y-auto w-40 h-32'>
               {airports.map((airport) => {
                 if(inputMatches(airport)){
                   i++;
+                  console.log(airport.state);
                   return (
                     <li key={airport.code} 
                         onMouseDown={() => {
@@ -59,7 +58,7 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId}
                           setIsChoseTaken(true);
                           console.log(searchAirport)
                         }}
-                        className='text-center text-black-600 truncate'>
+                        className='text-center text-black-600 truncate p-1 hover:bg-red-200 hover:cursor-pointer'>
                         {`${airport?.code} - ${airport?.name || airport?.city}`}
                     </li>
                 )   
