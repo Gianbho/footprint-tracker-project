@@ -23,7 +23,7 @@ export const fetchFlightFootprints = (from, to, passengers) => {
       ]
     }),
     headers: {
-      Authorization: "Bearer GTGZ6PBDRA4V6VGR2YZHPGMGT3GJ",
+      Authorization: `Bearer ${API_KEY}`,
       "Content-Type": "application/json"
     },
     method: 'POST',
