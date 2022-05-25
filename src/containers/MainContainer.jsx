@@ -1,10 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import SearchInput from '../components/SearchInput'
-import SearchButton from '../components/SearchButton';
-import SwitchAirportsButton from '../components/SwitchAirportsButton';
-import RoundTripButton from '../components/RoundTripButton';
-import PassengersButton from '../components/PassengersButton';
-import ResultsDiv from '../components/ResultsDiv';
+import { SearchInput, SearchButton, RoundTripButton, PassengersButton, SwitchAirportsButton, ResultsDiv } from '../components';
 import { fetchFlightFootprints } from '../client_API/APIcalls';
 
 const MainContainer = ({airports}) => {
@@ -14,6 +9,8 @@ const MainContainer = ({airports}) => {
     const [arrivalAirport, setArrivalAirport] = useState('');
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [passengers, setPassengers] = useState(0);
+    const [isFooterOpen, setIsFooterOpen] = useState(false);
+
 
     const [tripDatas, setTripDatas] = useState({});
 
@@ -24,11 +21,12 @@ const MainContainer = ({airports}) => {
         arrivalAirport: arrivalAirport,
         isRoundTrip: isRoundTrip,
         passengers: passengers,
+        isFooterOpen: isFooterOpen,
       });
     }, [saveAirports]);
 
   return (
-      <div className='h-screen w-full flex flex-col items-center justify-center'>
+      <div className='h-screen w-full flex flex-col items-center justify-center overflow-hidden'>
         <div className='flex flex-col items-center justify-center h-3/4'>
           <div className='flex flex-row justify-center'>
               <div className='w-1/2 m-0 flex'>
@@ -45,13 +43,11 @@ const MainContainer = ({airports}) => {
             <RoundTripButton isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} />
             <PassengersButton passengers={passengers} setPassengers={setPassengers} />
           </div>
-          <div className='mt-20'>
-            <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} />
+          <div className='mt-20 z-10'>
+            <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
           </div>
         </div>
-        <div className='flex justify-center w-full h-1/4 items-end overflow:hidden'>
-          <ResultsDiv tripDatas={tripDatas} />
-        </div>
+          <ResultsDiv tripDatas={tripDatas} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
       </div>
   )
 }
