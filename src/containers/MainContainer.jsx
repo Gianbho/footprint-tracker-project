@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import SearchInput from '../components/SearchInput'
 import SearchButton from '../components/SearchButton';
 import SwitchAirportsButton from '../components/SwitchAirportsButton';
 import RoundTripButton from '../components/RoundTripButton';
 import PassengersButton from '../components/PassengersButton';
+import { fetchFlightFootprints } from '../client_API/APIcalls';
 
 const MainContainer = ({airports}) => {
 
@@ -11,6 +12,11 @@ const MainContainer = ({airports}) => {
     const [startingAirport, setStartingAirport] = useState('');
     const [arrivalAirport, setArrivalAirport] = useState('');
     const [isRoundTrip, setIsRoundTrip] = useState(false);
+    const [passengers, setPassengers] = useState(0);
+
+    useEffect(() => {
+      fetchFlightFootprints(saveAirports[0], saveAirports[1], passengers)
+    }, [saveAirports]);
 
   return (
       <div className='w-full flex flex-col items-center align-center'>
@@ -27,7 +33,7 @@ const MainContainer = ({airports}) => {
         </div>
         <div className='w-full md:w-[700px] flex flex-row justify-around'>
           <RoundTripButton isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} />
-          <PassengersButton />
+          <PassengersButton passengers={passengers} setPassengers={setPassengers} />
         </div>
         <div className='mt-20'>
            <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} />

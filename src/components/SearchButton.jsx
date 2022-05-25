@@ -8,7 +8,6 @@ const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAi
         <button 
           className='h-full w-full text-left flex items-center place-content-between pl-24'
           onClick={() => {
-            fetchFlightFootprints(startingAirport, arrivalAirport);
             setSaveAirports([startingAirport, arrivalAirport]);
             console.log(saveAirports);
             console.log(isRoundTrip);

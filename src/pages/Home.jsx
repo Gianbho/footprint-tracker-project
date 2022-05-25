@@ -10,7 +10,6 @@ const Home = () => {
 
     useEffect(() => {
       fetchAirports(setAirports);
-      fetchFlightFootprints();
     }, [])
   
     return (
