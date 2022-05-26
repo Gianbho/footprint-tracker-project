@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId}) => {
+const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId, isFooterOpen, setIsFooterOpen}) => {
 
     let i = 0;
     const API_KEY = process.env.REACT_APP_API_KEY;
@@ -36,13 +36,16 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId}
         <div className='relative flex flex-col justify-center items-center w-full'>
           <input 
                 value={searchAirport}
-                className={position == 'left' ? 'text-center truncate font-mono shadow-md w-full h-full p-5 pr-12 rounded-l-[64px] border-4 border-gray-200 focus:outline-none' : 'text-center truncate font-mono shadow-md w-full h-full p-5 pl-12 rounded-r-[64px] border-4 border-gray-200 focus:outline-none'}
+                className={position == 'left' ? 'text-center truncate font-mono shadow-md w-full h-full p-5 ml-10 pr-12 rounded-l-[64px] border-4 border-gray-200 focus:outline-none' : 'text-center truncate font-mono shadow-md w-full h-full p-5 mr-10 pl-12 rounded-r-[64px] border-4 border-gray-200 focus:outline-none'}
                 onChange={(e) => {
                   handleChange(e.currentTarget.value);
                   showList();
                 }}
                 onBlur={() => {
                   handleBlur();
+                }}
+                onFocus={() => {
+                  if(isFooterOpen) setIsFooterOpen(false);
                 }}
           />
           <div className='relative w-full flex flex-col justify-center items-center'>

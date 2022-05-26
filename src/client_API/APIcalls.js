@@ -10,7 +10,7 @@ export const fetchAirports = (setState) => {
     })
 }
 
-export const fetchFlightFootprints = (from, to, passengers) => {
+export const fetchFlightFootprints = (from, to, passengers, flightClass, setFetchResults) => {
   const response = fetch("https://beta3.api.climatiq.io/travel/flights", {
     body: JSON.stringify({
       "legs": [
@@ -18,7 +18,7 @@ export const fetchFlightFootprints = (from, to, passengers) => {
           "from": `${from}`,
           "to": `${to}`,
           "passengers": parseInt(passengers),
-          "class": "economy"
+          "class": `${flightClass}`
         },
       ]
     }),
@@ -29,6 +29,9 @@ export const fetchFlightFootprints = (from, to, passengers) => {
     method: 'POST',
   })
   .then((response) => response.json())
-  .then(result => console.log(result));
+  .then(result => {
+    setFetchResults(result);
+    console.log(result);
+  });
 }; 
 

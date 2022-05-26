@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import { fetchAirports, fetchFlightFootprints } from '../client_API/APIcalls';
-import SearchInput from '../components/SearchInput';
+import { fetchAirports } from '../client_API/APIcalls';
 import MainContainer from '../containers/MainContainer';
 
 const Home = () => {
