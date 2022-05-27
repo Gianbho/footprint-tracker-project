@@ -6,15 +6,19 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
     const API_KEY = process.env.REACT_APP_API_KEY;
 
     const ulElement = document.getElementById(ulId);
+    const flightOptionsSection = document.getElementById('flightOptions');
     const [isChoseTaken, setIsChoseTaken] = useState(false);
-    const inputMatches = (airport) => (searchAirport !== '') && (airport.code.toUpperCase().includes(searchAirport.toUpperCase()) || airport.name.toUpperCase().includes(searchAirport.toUpperCase()) || (airport.city.toUpperCase().includes(searchAirport.toUpperCase()) || airport?.state?.toUpperCase().includes(searchAirport.toUpperCase()))) && i < 10;
+    const inputMatches = (airport) => (searchAirport !== '') && i < 10 && (airport.code.toUpperCase().includes(searchAirport.toUpperCase()) || airport.name.toUpperCase().includes(searchAirport.toUpperCase()) || (airport.city.toUpperCase().includes(searchAirport.toUpperCase())));
     
     const hideList = () => {
       ulElement?.classList.add('hidden');
+      flightOptionsSection.classList.remove('relative', 'top-28');
     };
 
     const showList = () => {
       ulElement?.classList.remove('hidden');
+      flightOptionsSection.classList.add('relative', 'top-28');
+      console.log(flightOptionsSection)
     };
 
     const handleBlur = () => {
@@ -24,11 +28,11 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
       hideList();
     };
 
-    const handleChange = (i) => {
+    const handleChange = (p) => {
       if(isChoseTaken) {
         setIsChoseTaken(false);
       }
-      setSearchAirport(i);
+      setSearchAirport(p);
     };
 
       return (
@@ -48,8 +52,8 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
                   if(isFooterOpen) setIsFooterOpen(false);
                 }}
           />
-          <div className='relative w-full flex flex-col justify-center items-center'>
-            <ul id={ulId} className='hidden overflow-hidden overflow-y-auto w-40 h-32'>
+          <div className='absolute w-full flex flex-col justify-center items-center'>
+            <ul id={ulId} className='hidden relative top-24 overflow-hidden overflow-y-auto w-40 h-32'>
               {airports.map((airport) => {
                 if(inputMatches(airport)){
                   i++;

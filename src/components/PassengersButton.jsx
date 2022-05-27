@@ -1,12 +1,13 @@
 import React from 'react'
 
-const PassengersButton = ({passengers, setPassengers}) => {
+const PassengersButton = ({passengers, setPassengers, setIsFooterOpen}) => {
   return (
     <div className='w-14 h-14 flex justify-center items-center rounded-full border-2 border-green-600 overflow-hidden'>
       <input 
         className='w-14 h-14 pb-1 rounded-full text-center' 
         value={passengers}
-        onChange={(e) => setPassengers(e.currentTarget.value)} />
+        onChange={(e) => setPassengers(e.currentTarget.value)} 
+        onFocus={() => setIsFooterOpen(false)}/>
       </div>
   )
 }

@@ -25,12 +25,12 @@ const MainContainer = ({airports}) => {
         myFlightClass: myFlightClass,
         isFooterOpen: isFooterOpen,
       });
-    }, [saveAirports]);
+    }, [saveAirports, isRoundTrip, startingAirport, arrivalAirport, passengers, myFlightClass]);
 
   return (
       <div className='h-screen w-full flex flex-col items-center justify-center overflow-hidden'>
         <div className='flex flex-col items-center justify-center h-3/4'>
-          <div className='flex flex-row justify-center'>
+          <section className='flex flex-row justify-center'>
               <div className='w-1/2 m-0 flex'>
                 <SearchInput airports={airports} searchAirport={startingAirport} setSearchAirport={setStartingAirport} position={'left'} ulId={1} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
               </div>
@@ -40,19 +40,21 @@ const MainContainer = ({airports}) => {
               <div className='w-1/2 m-0 flex'>
                 <SearchInput airports={airports} searchAirport={arrivalAirport} setSearchAirport={setArrivalAirport} position={'right'} ulId={2} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
               </div>
-          </div>
-          <div className='w-full md:w-[700px] flex flex-row justify-around mt-10'>
-            <div className='flex flex-col items-center'>
-              <h4 className='text-align-center'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
-              <RoundTripButton className='absolute' isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} />
+          </section>
+          <section id='flightOptions' className='w-full md:w-[700px] flex flex-col items-center mt-10'>
+            <div className='flex flex-row justify-around w-full'>
+              <div className='flex flex-col items-center'>
+                <h4 className='text-align-center'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
+                <RoundTripButton isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} setIsFooterOpen={setIsFooterOpen} />
+              </div>
+              <div className='flex flex-col items-center'>
+                <h4>Passengers</h4>
+                <PassengersButton passengers={passengers} setPassengers={setPassengers} setIsFooterOpen={setIsFooterOpen} />
+              </div>
             </div>
-            <div className='flex flex-col items-center'>
-              <h4>Passengers</h4>
-              <PassengersButton passengers={passengers} setPassengers={setPassengers} />
-            </div>
-          </div>
-          <ClassButton myFlightClass={myFlightClass} setMyFlightClass={setMyFlightClass} />
-          <div className='mt-20 z-10'>
+            <ClassButton myFlightClass={myFlightClass} setMyFlightClass={setMyFlightClass} />
+          </section>
+          <div className='mt-10 z-10'>
             <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
           </div>
         </div>

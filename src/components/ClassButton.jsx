@@ -10,7 +10,7 @@ const ClassButton = ({myFlightClass, setMyFlightClass}) => {
     }, [count])
 
     return ( 
-        <div className='flex w-40 h-14'>
+        <div className='flex w-40 h-14 mt-10'>
                         <button 
                 className='h-14 p-4 bg-white text-center'
                 onClick={() => {
@@ -25,12 +25,12 @@ const ClassButton = ({myFlightClass, setMyFlightClass}) => {
             -
             </button>
             <input 
-                className='selection w-full h-full text-center' 
+                className='selection w-full h-full text-center focus:outline-none' 
                 value={myFlightClass}
                 onChange={(e) => {
                     console.log(e.currentTarget.value);
                     setMyFlightClass(e.currentTarget.value);
-                }}/>
+                }} readOnly/>
             <button 
                 className='h-14 p-4 bg-white text-center'
                 onClick={() => {
