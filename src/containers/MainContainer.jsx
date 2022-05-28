@@ -44,14 +44,8 @@ const MainContainer = ({airports}) => {
           </section>
           <section id='flightOptions' className='w-full h-[45%] md:w-[700px] flex flex-col items-center'>
             <div className='flex flex-row justify-around w-full'>
-              <div className='flex flex-col items-center w-1/2'>
-                <h4 className='text-align-center font-heebo'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
                 <RoundTripButton isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} setIsFooterOpen={setIsFooterOpen} />
-              </div>
-              <div className='flex flex-col items-center w-1/2'>
-                <h4>Passengers</h4>
                 <PassengersButton passengers={passengers} setPassengers={setPassengers} setIsFooterOpen={setIsFooterOpen} />
-              </div>
             </div>
             <ClassButton myFlightClass={myFlightClass} setMyFlightClass={setMyFlightClass} setIsFooterOpen={setIsFooterOpen} />
           </section>

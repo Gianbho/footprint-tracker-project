@@ -7,7 +7,7 @@ const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAi
   const arrivalInput = document.getElementById('arrivalInput');
 
   const checkPassengers = () => {
-    if(!(typeof(parseInt(passengersInput.value)) === 'number') || (isNaN(parseInt(passengersInput.value)))) {
+    if(!(typeof(parseInt(passengersInput.value)) === 'number') || (isNaN(parseInt(passengersInput.value))) || (passengersInput.value == 0)) {
       passengersInput.classList.add('border-red-600', 'border-2')
       console.log(parseInt(passengersInput.innerHTML));
       return false;
@@ -30,6 +30,8 @@ const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAi
     if((checkAirports() && checkPassengers())) {
       setSaveAirports([startingAirport, arrivalAirport]);
       setIsFooterOpen(true);
+    } else if(!checkAirports()) {
+      checkPassengers();
     }
   };
 

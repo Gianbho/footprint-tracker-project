@@ -31,7 +31,7 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
         setIsChoseTaken(false);
       }
       setSearchAirport(p.value);
-      p.classList.remove('border-red-600');
+      p.classList.remove('border-red-600', 'border-2');
     };
 
       return (
@@ -41,7 +41,7 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
             id={inputId}
             value={searchAirport}
             placeholder={position == 'left' ? 'Starting' : 'Arrival'}
-            className={position == 'left' ? 'text-center truncate font-mono shadow-md w-full h-full p-5 ml-15 rounded-l-[64px] focus:outline-none z-20' : 'text-center truncate font-mono shadow-md w-full h-full p-5 mr-15 rounded-r-[64px] focus:outline-none z-20'}
+            className={position == 'left' ? 'text-center truncate font-mono text-lg shadow-md w-full h-full p-5 ml-15 rounded-l-[64px] focus:outline-none z-20' : 'text-center truncate font-mono text-lg shadow-md w-full h-full p-5 mr-15 rounded-r-[64px] focus:outline-none z-20'}
             onChange={(e) => {
               handleChange(e.currentTarget);
               showList();

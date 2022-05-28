@@ -13,7 +13,7 @@ const ClassButton = ({myFlightClass, setMyFlightClass, setIsFooterOpen}) => {
     return ( 
         <div className='flex w-40 h-14 mt-10 shadow-md rounded-3xl'>
             <button 
-                className='h-14 p-4 bg-white align-middle rounded-l-3xl'
+                className='h-14 p-4 bg-white hover:bg-myIntenseBlue active:bg-myIntenseBlue align-middle rounded-l-3xl'
                 onClick={() => {
                     if(count <= 2 && count > 0) {
                         setCount(count - 1);
@@ -34,7 +34,7 @@ const ClassButton = ({myFlightClass, setMyFlightClass, setIsFooterOpen}) => {
                     setMyFlightClass(e.currentTarget.value);
                 }} readOnly/>
             <button 
-                className='h-14 p-4 bg-white align-middle rounded-r-3xl'
+                className='h-14 p-4 bg-white hover:bg-myIntenseBlue active:bg-myIntenseBlue align-middle rounded-r-3xl'
                 onClick={() => {
                     if(count >= 0 && count < 2) {
                         setCount(count + 1)
