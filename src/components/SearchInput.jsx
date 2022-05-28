@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId, isFooterOpen, setIsFooterOpen}) => {
+const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId, isFooterOpen, setIsFooterOpen, inputId}) => {
 
     let i = 0;
     const API_KEY = process.env.REACT_APP_API_KEY;
@@ -12,12 +12,10 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
     
     const hideList = () => {
       ulElement?.classList.add('hidden');
-      flightOptionsSection.classList.remove('relative', 'top-28');
     };
 
     const showList = () => {
       ulElement?.classList.remove('hidden');
-      flightOptionsSection.classList.add('relative', 'top-28');
       console.log(flightOptionsSection)
     };
 
@@ -32,45 +30,48 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
       if(isChoseTaken) {
         setIsChoseTaken(false);
       }
-      setSearchAirport(p);
+      setSearchAirport(p.value);
+      p.classList.remove('border-red-600');
     };
 
       return (
       <div className={position == 'left' ? 'w-full flex flex-col items-end' : 'w-full flex flex-col items-start'}> 
         <div className='relative flex flex-col justify-center items-center w-full'>
           <input 
-                value={searchAirport}
-                className={position == 'left' ? 'text-center truncate font-mono shadow-md w-full h-full p-5 ml-10 pr-12 rounded-l-[64px] border-4 border-gray-200 focus:outline-none' : 'text-center truncate font-mono shadow-md w-full h-full p-5 mr-10 pl-12 rounded-r-[64px] border-4 border-gray-200 focus:outline-none'}
-                onChange={(e) => {
-                  handleChange(e.currentTarget.value);
-                  showList();
-                }}
-                onBlur={() => {
-                  handleBlur();
-                }}
-                onFocus={() => {
-                  if(isFooterOpen) setIsFooterOpen(false);
-                }}
+            id={inputId}
+            value={searchAirport}
+            placeholder={position == 'left' ? 'Starting' : 'Arrival'}
+            className={position == 'left' ? 'text-center truncate font-mono shadow-md w-full h-full p-5 ml-15 rounded-l-[64px] focus:outline-none z-20' : 'text-center truncate font-mono shadow-md w-full h-full p-5 mr-15 rounded-r-[64px] focus:outline-none z-20'}
+            onChange={(e) => {
+              handleChange(e.currentTarget);
+              showList();
+            }}
+            onBlur={() => {
+              handleBlur();
+            }}
+            onFocus={() => {
+              if(isFooterOpen) setIsFooterOpen(false);
+            }}
           />
-          <div className='absolute w-full flex flex-col justify-center items-center'>
-            <ul id={ulId} className='hidden relative top-24 overflow-hidden overflow-y-auto w-40 h-32'>
+          <div className={position == 'left' ? 'absolute w-full flex flex-col justify-center items-end' : 'absolute w-full flex flex-col justify-center items-start'}>
+            <ul id={ulId} className={ position == 'left' ? 'hidden relative top-24 overflow-hidden overflow-y-auto w-[85%] h-32 bg-white rounded-b-2xl shadow-md z-10' : 'hidden relative top-24 overflow-hidden overflow-y-auto w-[85%] h-32 bg-white rounded-b-2xl shadow-md z-10'}>
               {airports.map((airport) => {
                 if(inputMatches(airport)){
                   i++;
                   console.log(airport.state);
                   return (
                     <li key={airport.code} 
-                        onMouseDown={() => {
-                          setSearchAirport(airport.code);
-                          setIsChoseTaken(true);
-                          console.log(searchAirport)
-                        }}
-                        className='text-center text-black-600 truncate p-1 hover:bg-red-200 hover:cursor-pointer'>
-                        {`${airport?.code} - ${airport?.name || airport?.city}`}
+                      onMouseDown={() => {
+                        setSearchAirport(airport.code);
+                        setIsChoseTaken(true);
+                        console.log(searchAirport)
+                      }}
+                      className='text-center text-black-600 truncate p-1 hover:bg-red-200 hover:cursor-pointer'>
+                      {`${airport?.code} - ${airport?.name || airport?.city}`}
                     </li>
-                )   
+                  )   
                 }
-            })}
+              })}
             </ul>
           </div>
         </div>

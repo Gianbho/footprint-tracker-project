@@ -12,7 +12,7 @@ const Home = () => {
     }, [])
   
     return (
-      <div className='flex flex-wrap justify-center overflow-hidden h-screen w-screen bg-gradient-to-b from-myGreen via-gray-100 to-gray-200'>
+      <div className='flex flex-wrap justify-center overflow-hidden h-screen w-screen bg-gradient-to-b from-myBlue via-gray-100 to-gray-200'>
         <div className=''>
           <MainContainer airports={airports} />
         </div>

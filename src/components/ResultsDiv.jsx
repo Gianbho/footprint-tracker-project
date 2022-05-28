@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {IoIosArrowUp, IoIosArrowDown} from 'react-icons/io'
 
 const ResultsDiv = ({tripDatas, isFooterOpen, setIsFooterOpen, fetchResults}) => {
 
@@ -28,16 +29,16 @@ const ResultsDiv = ({tripDatas, isFooterOpen, setIsFooterOpen, fetchResults}) =>
   return (
     <footer 
       id='footer'
-      className={isFooterOpen ? 'flex flex-col items-center absolute -bottom-96 transition ease-in duration-500 -translate-y-96 w-screen z-10 bg-blue-600 h-[400px] rounded-t-3xl' : 'flex flex-col items-center absolute -bottom-96 transition ease-out duration-500 w-screen z-10 bg-blue-600 h-[400px] rounded-t-3xl'}>
+      className={isFooterOpen ? 'flex flex-col items-center absolute -bottom-96 transition ease-in duration-500 -translate-y-96 w-screen z-10 bg-white h-[400px] rounded-t-3xl' : 'flex flex-col items-center absolute -bottom-96 transition ease-out duration-500 w-screen z-10 bg-white h-[400px] rounded-t-3xl'}>
       <div className='relative'>
         <button 
-          className='h-14 w-14 relative z-10 bottom-8 rounded-full bg-black p-8'
+          className='h-14 w-14 relative z-10 bottom-6 rounded-full flex justify-center items-center bg-white'
           onClick={(e) => {
             handleFooter();
             console.log(fetchResults)
           }}
           >
-            <p>1</p>
+            {isFooterOpen ? <IoIosArrowDown className='pb-2' size={35} /> : <IoIosArrowUp className='pb-2' size={35} />}
           </button>
       </div>
       <div id='datas' className={isFooterOpen ? 'h-fit' : 'hidden'}>

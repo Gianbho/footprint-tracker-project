@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { SearchInput, SearchButton, RoundTripButton, PassengersButton, ClassButton, SwitchAirportsButton, ResultsDiv } from '../components';
+import { SearchInput, SearchButton, RoundTripButton, PassengersButton, ClassButton, SwitchAirportsButton, ResultsDiv, Header} from '../components';
 import { fetchFlightFootprints } from '../client_API/APIcalls';
 
 const MainContainer = ({airports}) => {
@@ -29,33 +29,34 @@ const MainContainer = ({airports}) => {
 
   return (
       <div className='h-screen w-full flex flex-col items-center justify-center overflow-hidden'>
-        <div className='flex flex-col items-center justify-center h-3/4'>
-          <section className='flex flex-row justify-center'>
-              <div className='w-1/2 m-0 flex'>
-                <SearchInput airports={airports} searchAirport={startingAirport} setSearchAirport={setStartingAirport} position={'left'} ulId={1} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
+        <Header />
+        <div className='flex flex-col items-center justify-start h-[85%] mt-2'>
+          <section className='flex flex-row w-full h-[30%] justify-center pt-[50px]'>
+              <div className='w-[40%] m-0 flex'>
+                <SearchInput airports={airports} searchAirport={startingAirport} setSearchAirport={setStartingAirport} position={'left'} ulId={1} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} inputId={'startingInput'} />
               </div>
-              <div className='absolute z-10'>
+              <div className='absolute z-30'>
                 <SwitchAirportsButton startingAirport={startingAirport} setStartingAirport={setStartingAirport} arrivalAirport={arrivalAirport} setArrivalAirport={setArrivalAirport} />
               </div>
-              <div className='w-1/2 m-0 flex'>
-                <SearchInput airports={airports} searchAirport={arrivalAirport} setSearchAirport={setArrivalAirport} position={'right'} ulId={2} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
+              <div className='w-[40%] m-0 flex'>
+                <SearchInput airports={airports} searchAirport={arrivalAirport} setSearchAirport={setArrivalAirport} position={'right'} ulId={2} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} inputId={'arrivalInput'} />
               </div>
           </section>
-          <section id='flightOptions' className='w-full md:w-[700px] flex flex-col items-center mt-10'>
+          <section id='flightOptions' className='w-full h-[45%] md:w-[700px] flex flex-col items-center'>
             <div className='flex flex-row justify-around w-full'>
-              <div className='flex flex-col items-center'>
-                <h4 className='text-align-center'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
+              <div className='flex flex-col items-center w-1/2'>
+                <h4 className='text-align-center font-heebo'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
                 <RoundTripButton isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} setIsFooterOpen={setIsFooterOpen} />
               </div>
-              <div className='flex flex-col items-center'>
+              <div className='flex flex-col items-center w-1/2'>
                 <h4>Passengers</h4>
                 <PassengersButton passengers={passengers} setPassengers={setPassengers} setIsFooterOpen={setIsFooterOpen} />
               </div>
             </div>
-            <ClassButton myFlightClass={myFlightClass} setMyFlightClass={setMyFlightClass} />
+            <ClassButton myFlightClass={myFlightClass} setMyFlightClass={setMyFlightClass} setIsFooterOpen={setIsFooterOpen} />
           </section>
-          <div className='mt-10 z-10'>
-            <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} />
+          <div className='flex justify-center items-center h-1/5 z-10'>
+            <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} passengers={passengers} />
           </div>
         </div>
           <ResultsDiv tripDatas={tripDatas} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} fetchResults={fetchResults} />

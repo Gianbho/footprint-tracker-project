@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {BsArrowLeftRight} from 'react-icons/bs'
 
 const SwitchAirportsButton = ({startingAirport, setStartingAirport, arrivalAirport, setArrivalAirport}) => {
+
+  const startingInput = document.getElementById('startingInput');
+  const arrivalInput = document.getElementById('arrivalInput');
+  const [isHovered, setIsHovered] = useState(false);
 
   const switchAirports = () => {
     let tempArray = [startingAirport, arrivalAirport];
@@ -10,11 +14,20 @@ const SwitchAirportsButton = ({startingAirport, setStartingAirport, arrivalAirpo
   };
 
   return (
-    <div className='relative bottom-3' >
+    <div className='relative bottom-2' >
         <button 
-        className='shadow-md bg-white p-8 rounded-full border-solid border-4 border-gray-200'
-        onClick={() => switchAirports()}>
-          <BsArrowLeftRight size={30}/>
+        className='shadow-md z-30 bg-white p-7 rounded-full border-solid border-1 hover:p-8 hover:bg-myIntenseBlue hover:-translate-y-1 hover:ease-in hover:duration-75 active:scale-90 active:bg-myIntenseBlue '
+        onClick={() => {
+          if(startingAirport && arrivalAirport) {
+            switchAirports();
+          } else {
+            if(startingInput.value == '') startingInput.classList.add('border-red-600', 'border-2');
+            if(arrivalInput.value == '') arrivalInput.classList.add('border-red-600', 'border-2');
+          }
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}>
+          <BsArrowLeftRight color={isHovered ? 'white' : 'black'} size={30}/>
         </button>
     </div>
   )

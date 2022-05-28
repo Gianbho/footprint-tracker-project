@@ -1,20 +1,46 @@
 import React from 'react'
-import {BsArrowRightCircleFill} from 'react-icons/bs'
-import { fetchFlightFootprints } from '../client_API/APIcalls'
 
-const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAirport, isRoundTrip, isFooterOpen, setIsFooterOpen}) => {
+const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAirport, isRoundTrip, setIsFooterOpen, passengers}) => {
+
+  const passengersInput = document.getElementById('passengersInput');
+  const startingInput = document.getElementById('startingInput');
+  const arrivalInput = document.getElementById('arrivalInput');
+
+  const checkPassengers = () => {
+    if(!(typeof(parseInt(passengersInput.value)) === 'number') || (isNaN(parseInt(passengersInput.value)))) {
+      passengersInput.classList.add('border-red-600', 'border-2')
+      console.log(parseInt(passengersInput.innerHTML));
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const checkAirports = () => {
+    if(startingAirport && arrivalAirport) {
+      return true
+    } else {
+      if(startingInput.value == '') startingInput.classList.add('border-2', 'border-red-600');
+      if(arrivalInput.value == '') arrivalInput.classList.add('border-2', 'border-red-600');
+      return false;
+    }
+  };
+
+  const areDatasValid = () => {
+    if((checkAirports() && checkPassengers())) {
+      setSaveAirports([startingAirport, arrivalAirport]);
+      setIsFooterOpen(true);
+    }
+  };
+
   return (
-      <div className='mt-[150px] w-[250px] h-[55px] bg-red-200 border-3 rounded-[750px] border-solid shadow flex justify-end'>
+      <div className='w-[250px] h-[55px] bg-[#FFBCBC] border-3 rounded-[750px] border-solid shadow-md hover:scale-105 hover:duration-100 active:scale-90'>
         <button 
-          className='h-full w-full text-left flex items-center place-content-between pl-24'
+          className='h-full w-full text-center'
           onClick={() => {
-            setSaveAirports([startingAirport, arrivalAirport]);
-            setIsFooterOpen(true);
-            console.log(saveAirports);
-            console.log(isRoundTrip);
+            areDatasValid();
           }}>
           Search
-          <BsArrowRightCircleFill size={55} />        
         </button>
       </div>
   )

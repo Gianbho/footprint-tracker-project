@@ -6,7 +6,14 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      'heebo': ['Heebo', 'Arial', 'sans-serif']
+    },
     extend: {
+      scale: {
+        '90': '0.9',
+        '105': '1.05'
+      },
       outlineWidth: {
         '0': '0px',
       },
@@ -14,7 +21,8 @@ module.exports = {
         '7/25': '29.2%',
       },
       colors: {
-        myGreen: '#71EFA3',
+        myBlue: '#85F4FF',
+        myIntenseBlue: '#9ADCFF',
       },
       margin: {
         320: '320px',
