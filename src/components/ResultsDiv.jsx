@@ -29,10 +29,10 @@ const ResultsDiv = ({tripDatas, isFooterOpen, setIsFooterOpen, fetchResults}) =>
   return (
     <footer 
       id='footer'
-      className={isFooterOpen ? 'flex flex-col items-center absolute -bottom-96 transition ease-in duration-500 -translate-y-96 w-screen md:w-[750px] z-40 bg-gradient-to-b from-myBlue via-white to-white h-[400px] rounded-t-3xl' : 'flex flex-col items-center absolute -bottom-96 transition ease-out duration-500 w-screen md:w-[750px] z-10 bg-gradient-to-b from-myBlue via-white to-white h-[400px] rounded-t-3xl'}>
+      className={isFooterOpen ? 'flex flex-col items-center absolute -bottom-96 transition ease-in duration-500 -translate-y-96 w-screen md:w-[750px] z-40 bg-gradient-to-b from-myIntenseBlue via-white to-white h-[400px] rounded-t-3xl' : 'flex flex-col items-center absolute -bottom-96 transition ease-out duration-500 w-screen md:w-[750px] z-10 bg-gradient-to-b from-myIntenseBlue via-white to-white h-[400px] rounded-t-3xl'}>
       <div className='relative'>
         <button 
-          className='h-14 w-14 relative z-10 bottom-6 rounded-full flex justify-center items-center bg-myBlue'
+          className='h-14 w-14 relative z-10 bottom-6 rounded-full flex justify-center items-center bg-myIntenseBlue'
           onClick={(e) => {
             handleFooter();
             console.log(fetchResults);

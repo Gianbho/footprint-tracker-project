@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: {
+        'plane-pattern': "url('assets/airplane.png')",
+      },
       boxShadow: {
         'inset': 'inset -5px 10px 10px -5px rgba(0, 0, 0, 0.2)'
       },
