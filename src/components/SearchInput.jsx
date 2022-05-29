@@ -32,12 +32,11 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
       }
       setSearchAirport(p.value);
       p.classList.remove('border-red-600', 'border-2');
-      console.log(ulElement.children.length)
     };
 
       return (
-      <div className={position == 'left' ? 'w-full h-fit flex flex-col items-end' : 'w-full flex flex-col items-start'}> 
-        <div className='relative block justify-center items-center w-full'>
+      <div className={position == 'left' ? 'w-full flex flex-col items-end' : 'w-full flex flex-col items-start'}> 
+        <div className='relative flex flex-col justify-center items-center w-full'>
           <input 
             id={inputId}
             value={searchAirport}
@@ -54,8 +53,8 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
               if(isFooterOpen) setIsFooterOpen(false);
             }}
           />
-          <div className={`absolute w-full flex flex-col self-end ${position == 'left' ? 'items-end' : 'items-start'}`}>
-            <ul id={ulId} className={`relative bottom-1 overflow-hidden overflow-y-auto w-[90%] bg-white rounded-b-2xl shadow-md z-10 ${(ulElement?.children?.length < 4) ? 'h-fit' : 'h-32'}`}>
+          <div className={position == 'left' ? 'absolute w-full flex flex-col justify-center items-end' : 'absolute w-full flex flex-col justify-center items-start'}>
+            <ul id={ulId} className={ position == 'left' ? 'hidden relative top-24 overflow-hidden overflow-y-auto w-[85%] h-32 bg-white rounded-b-2xl shadow-md z-10' : 'hidden relative top-24 overflow-hidden overflow-y-auto w-[85%] h-32 bg-white rounded-b-2xl shadow-md z-10'}>
               {airports.map((airport) => {
                 if(inputMatches(airport)){
                   i++;
