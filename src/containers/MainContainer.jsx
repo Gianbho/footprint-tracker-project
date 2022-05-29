@@ -31,7 +31,7 @@ const MainContainer = ({airports}) => {
       <div className='h-screen w-full flex flex-col items-center justify-center overflow-hidden'>
         <Header />
         <div className='flex flex-col items-center justify-start h-[85%] mt-2'>
-          <section className='flex flex-row w-full h-[30%] justify-center pt-[50px]'>
+          <section className='flex flex-row w-full h-[30%] justify-center items-center'>
               <div className='w-[40%] m-0 flex'>
                 <SearchInput airports={airports} searchAirport={startingAirport} setSearchAirport={setStartingAirport} position={'left'} ulId={1} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} inputId={'startingInput'} />
               </div>
@@ -42,14 +42,14 @@ const MainContainer = ({airports}) => {
                 <SearchInput airports={airports} searchAirport={arrivalAirport} setSearchAirport={setArrivalAirport} position={'right'} ulId={2} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} inputId={'arrivalInput'} />
               </div>
           </section>
-          <section id='flightOptions' className='w-full h-[45%] md:w-[700px] flex flex-col items-center'>
+          <section id='flightOptions' className='w-full h-[40%] md:w-[700px] flex flex-col items-center'>
             <div className='flex flex-row justify-around w-full'>
                 <RoundTripButton isRoundTrip={isRoundTrip} setIsRoundTrip={setIsRoundTrip} setIsFooterOpen={setIsFooterOpen} />
                 <PassengersButton passengers={passengers} setPassengers={setPassengers} setIsFooterOpen={setIsFooterOpen} />
             </div>
             <ClassButton myFlightClass={myFlightClass} setMyFlightClass={setMyFlightClass} setIsFooterOpen={setIsFooterOpen} />
           </section>
-          <div className='flex justify-center items-center h-1/5 z-10'>
+          <div className='flex justify-center items-center h-1/5 w-full z-10'>
             <SearchButton saveAirports={saveAirports} setSaveAirports={setSaveAirports} startingAirport={startingAirport} arrivalAirport={arrivalAirport} isRoundTrip={isRoundTrip} isFooterOpen={isFooterOpen} setIsFooterOpen={setIsFooterOpen} passengers={passengers} />
           </div>
         </div>

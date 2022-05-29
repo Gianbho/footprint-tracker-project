@@ -14,9 +14,9 @@ const SwitchAirportsButton = ({startingAirport, setStartingAirport, arrivalAirpo
   };
 
   return (
-    <div className='relative bottom-2' >
+    <div className='relative' >
         <button 
-        className='shadow-md z-30 bg-white p-7 rounded-full border-solid border-1 hover:p-8 hover:bg-myIntenseBlue hover:-translate-y-1 hover:ease-in hover:duration-75 active:scale-90 active:bg-myIntenseBlue '
+        className='shadow-md z-30 bg-white p-5 rounded-full border-solid border-1 hover:p-6 hover:bg-myIntenseBlue hover:ease-in hover:duration-75 active:scale-90 active:bg-myIntenseBlue '
         onClick={() => {
           if(startingAirport && arrivalAirport) {
             switchAirports();
