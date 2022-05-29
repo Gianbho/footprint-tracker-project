@@ -6,10 +6,10 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      'heebo': ['Heebo', 'Arial', 'sans-serif']
-    },
     extend: {
+      boxShadow: {
+        'inset': 'inset -5px 10px 10px -5px rgba(0, 0, 0, 0.2)'
+      },
       scale: {
         '90': '0.9',
         '105': '1.05'

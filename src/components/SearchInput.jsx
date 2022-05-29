@@ -54,7 +54,7 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
             }}
           />
           <div className={position == 'left' ? 'absolute w-full flex flex-col justify-center items-end' : 'absolute w-full flex flex-col justify-center items-start'}>
-            <ul id={ulId} className={ position == 'left' ? 'hidden overflow-hidden overflow-y-auto w-[85%] h-32 bg-white rounded-b-2xl shadow-md z-10' : 'hidden overflow-hidden overflow-y-auto w-[85%] h-32 bg-white rounded-b-2xl shadow-md z-10'}>
+            <ul id={ulId} className={ position == 'left' ? `hidden overflow-hidden overflow-y-auto w-[90%] h-fit max-h-32 bg-white rounded-b-2xl shadow-md z-10` : 'hidden overflow-hidden overflow-y-auto w-[90%] h-fit max-h-32 bg-white rounded-b-2xl shadow-md z-10'}>
               {airports.map((airport) => {
                 if(inputMatches(airport)){
                   i++;

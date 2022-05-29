@@ -3,7 +3,7 @@ import React from 'react'
 const PassengersButton = ({passengers, setPassengers, setIsFooterOpen}) => {
   return (
     <div className='flex flex-col items-center w-1/2'>
-      <h4>Passengers</h4>
+      <h4 className='font-mono '>Passengers</h4>
       <div className='w-14 h-14 flex justify-center items-center rounded-full shadow-md overflow-hidden'>
         <input 
           id='passengersInput'
