@@ -16,7 +16,7 @@ const MainContainer = ({airports}) => {
     const [tripDatas, setTripDatas] = useState({});
 
     useEffect(() => {
-      fetchFlightFootprints(saveAirports[0], saveAirports[1], passengers, myFlightClass, setFetchResults);
+      //fetchFlightFootprints(saveAirports[0], saveAirports[1], passengers, myFlightClass, setFetchResults);
       setTripDatas({
         startingAirport: startingAirport,
         arrivalAirport: arrivalAirport,
