@@ -11,8 +11,8 @@ const SearchInput = ({airports, searchAirport, setSearchAirport, position, ulId,
 
     const LEFT_INPUT_STYLE = 'text-center truncate font-mono text-lg shadow-md w-full h-full p-5 ml-15 rounded-l-[64px] focus:outline-none z-20';
     const RIGHT_INPUT_STYLE = 'text-center truncate font-mono text-lg shadow-md w-full h-full p-5 mr-15 rounded-r-[64px] focus:outline-none z-20';
-    const LEFT_UL_STYLE = 'hidden overflow-hidden overflow-y-auto w-[90%] h-fit max-h-32 bg-white rounded-b-2xl shadow-md z-10';
-    const RIGHT_UL_STYLE = 'hidden overflow-hidden overflow-y-auto w-[90%] h-fit max-h-32 bg-white rounded-b-2xl shadow-md z-10';
+    const LEFT_UL_STYLE = 'hidden overflow-hidden overflow-y-auto w-[85%] md:w-[90%] h-fit max-h-32 bg-white rounded-b-2xl shadow-md z-10';
+    const RIGHT_UL_STYLE = 'hidden overflow-hidden overflow-y-auto w-[85%] md:w-[90%] h-fit max-h-32 bg-white rounded-b-2xl shadow-md z-10';
 
     const hideList = () => {
       ulElement?.classList.add('hidden');
