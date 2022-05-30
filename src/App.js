@@ -4,7 +4,7 @@ import Home from './pages/Home';
 
 function App() {
   return(
-    <div className='flex w-screen md:w-[750px] md:my-0 md:mx-auto h-screen overflow-hidden'>
+    <div className='flex w-screen md:w-[750px] md:my-0 md:mx-auto min-h-[750px] h-screen overflow-hidden'>
      <Home />
     </div>
   )
