@@ -5,7 +5,7 @@ const RoundTripButton = ({isRoundTrip, setIsRoundTrip, setIsFooterOpen}) => {
   return (
     <div className='flex flex-col items-center w-1/2'>
       <h4 className='text-align-center font-mono'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
-      <div className='h-14 w-14 rounded-full overflow-hidden shadow-gray-400 shadow-md active:scale-90'>
+      <div className='h-14 w-14 overflow-hidden rounded-full shadow-gray-400 shadow-md active:scale-90'>
         <button 
           onClick={(e) => {
             if(!isRoundTrip) {
@@ -19,7 +19,7 @@ const RoundTripButton = ({isRoundTrip, setIsRoundTrip, setIsFooterOpen}) => {
             }
             setIsFooterOpen(false);
           }}>
-          <img className='h-14 w-14 bg-white' src={roundTripImage} />
+          <img className='h-14 w-14 bg-white' alt='round trip plane' src={roundTripImage} />
         </button>
       </div>
     </div>

@@ -7,6 +7,8 @@ const SwitchAirportsButton = ({startingAirport, setStartingAirport, arrivalAirpo
   const arrivalInput = document.getElementById('arrivalInput');
   const [isHovered, setIsHovered] = useState(false);
 
+  const SWITCH_BUTTON_STYLE = 'shadow-md z-30 bg-white p-5 md:p-6 rounded-full border-solid border-1 hover:p-6 md:hover:p-7 hover:bg-myIntenseBlue hover:ease-in hover:duration-75 active:scale-90';
+
   const switchAirports = () => {
     let tempArray = [startingAirport, arrivalAirport];
     setStartingAirport(tempArray[1]);
@@ -16,7 +18,7 @@ const SwitchAirportsButton = ({startingAirport, setStartingAirport, arrivalAirpo
   return (
     <div className='relative' >
         <button 
-        className='shadow-md z-30 bg-white p-5 md:p-6 rounded-full border-solid border-1 hover:p-6 md:hover:p-7 md:hover:bg-myIntenseBlue hover:ease-in hover:duration-75 active:scale-90 md:active:bg-myIntenseBlue '
+        className={SWITCH_BUTTON_STYLE}
         onClick={() => {
           if(startingAirport && arrivalAirport) {
             switchAirports();

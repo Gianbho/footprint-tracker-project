@@ -9,7 +9,6 @@ const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAi
   const checkPassengers = () => {
     if(!(typeof(parseInt(passengersInput.value)) === 'number') || (isNaN(parseInt(passengersInput.value))) || (passengersInput.value == 0)) {
       passengersInput.classList.add('border-red-600', 'border-2')
-      console.log(parseInt(passengersInput.innerHTML));
       return false;
     } else {
       return true;
@@ -36,7 +35,7 @@ const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAi
   };
 
   return (
-      <div className='w-1/2 mb-5 h-[55px] bg-[#FFBCBC] border-3 rounded-[750px] border-solid shadow-md hover:scale-105 hover:duration-100 active:scale-90'>
+      <div className='w-1/2 mb-5 h-[55px] bg-[#FFBCBC] border-3 border-solid rounded-full shadow-md hover:scale-105 hover:duration-100 active:scale-90'>
         <button 
           className='h-full w-full text-center font-mono text-lg'
           onClick={() => {

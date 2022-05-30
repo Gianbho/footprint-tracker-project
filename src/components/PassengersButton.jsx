@@ -4,7 +4,7 @@ const PassengersButton = ({passengers, setPassengers, setIsFooterOpen}) => {
   return (
     <div className='flex flex-col items-center w-1/2'>
       <h4 className='font-mono '>Passengers</h4>
-      <div className='w-14 h-14 flex justify-center items-center rounded-full shadow-md overflow-hidden'>
+      <div className='flex justify-center items-center w-14 h-14 overflow-hidden rounded-full shadow-md'>
         <input 
           id='passengersInput'
           className='w-14 h-14 pb-1 rounded-full text-center focus:outline-none'
