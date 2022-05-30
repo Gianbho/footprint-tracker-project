@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# My Final Front-end Project for Start2Impact
+<p align="center">
+  <a href="https://github.com/Gianbho/footprint-tracker-project">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Flight Footprint Calculator GT</h3>
 
-## Available Scripts
+  <p align="center">
+    Discover the environmental impact of your flights!
+  </p>
+</p>
 
-In the project directory, you can run:
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is a simple web app that analyzes the environmental impact datas of your flights [Climatiq.io](climatiq.io) via their free [API](climatiq.io/api-docs) and displays it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The user can set a flight through many inputs (class, passengers number, airports and round trip or one-way).
 
-### `npm test`
+The API fetches data and shows a footer containing results datas (CH4, CO2 & N2O emissions).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built With
 
-### `npm run build`
+* [React](https://reactjs.org/)
+* [React-icons](https://react-icons.github.io/react-icons/)
+* [Axios](https://axios-http.com/)
+* [Dotenv](https://github.com/motdotla/dotenv)
+* [Tailwind CSS](https://tailwindcss.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get a local copy up and running follow these simple steps.
+To try the app online follow the link [FlightFootprintCalculator](https://gt-final-footprint-project.netlify.app/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+* npm
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ```sh
+  npm install npm@latest -g
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```sh
+   git clone https://github.com/Gianbho/footprint-tracker-project.git
+   ```
 
-## Learn More
+2. Install NPM packages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```sh
+   npm install
+   npm i tailwindcss
+   ```
+   
+3. Get a free API key at [Climatiq.io](climatiq.io/api-docs)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Create a .env file in the root folder and insert your REACT_APP_API_KEY:
 
-### Code Splitting
+   ```sh
+   REACT_APP_API_KEY = 'ENTER YOUR API'
+   ```
+5. Open powershell window in root folder and start a local server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```sh
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Distributed under the MIT License. See `LICENSE` for more information.
 
-### Making a Progressive Web App
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Gianluca Tramontano - gianluca.trm@gmail.com
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgements
 
-### Deployment
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+* [Climatiq.io](https://climatiq.io/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
