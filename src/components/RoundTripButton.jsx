@@ -4,7 +4,7 @@ import roundTripImage from '../assets/round-trip-flight.png'
 const RoundTripButton = ({isRoundTrip, setIsRoundTrip, setIsFooterOpen}) => {
   return (
     <div className='flex flex-col items-center w-1/2'>
-      <h4 className='text-align-center font-mono'>Round trip: {isRoundTrip ? 'Yes' : 'No'}</h4>
+      <h4 className='text-align-center font-mono'>{isRoundTrip ? 'Round-trip' : 'One-way'}</h4>
       <div className='h-14 w-14 overflow-hidden rounded-full shadow-gray-400 shadow-md active:scale-90'>
         <button 
           onClick={(e) => {
