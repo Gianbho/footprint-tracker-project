@@ -28,7 +28,7 @@ const MainContainer = ({airports}) => {
     }, [saveAirports, isRoundTrip, startingAirport, arrivalAirport, passengers, myFlightClass]);
 
   return (
-      <div className='flex flex-col items-center justify-center h-screen w-full overflow-hidden bg-plane-pattern'>
+      <div className='flex flex-col items-center justify-center min-h-[750px] h-screen w-full overflow-hidden bg-plane-pattern'>
         <Header />
         <div className='flex flex-col items-center justify-start h-[85%] mt-2'>
           <section className='flex flex-row justify-center items-center w-full h-[30%]'>
