@@ -35,7 +35,7 @@ const SearchButton = ({saveAirports, setSaveAirports, arrivalAirport, startingAi
   };
 
   return (
-      <div className='w-1/2 mb-5 h-[55px] bg-[#FFBCBC] border-3 border-solid rounded-full shadow-md hover:scale-105 hover:duration-100 active:scale-90'>
+      <div className='w-1/2 mb-8 h-[55px] bg-[#FFBCBC] border-3 border-solid rounded-full shadow-md hover:scale-105 hover:duration-100 active:scale-90'>
         <button 
           className='h-full w-full text-center font-mono text-lg'
           onClick={() => {
