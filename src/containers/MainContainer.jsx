@@ -16,7 +16,6 @@ const MainContainer = ({airports}) => {
     const [tripDatas, setTripDatas] = useState({});
 
     useEffect(() => {
-      fetchFlightFootprints(saveAirports[0], saveAirports[1], passengers, myFlightClass, setFetchResults);
       setTripDatas({
         startingAirport: startingAirport,
         arrivalAirport: arrivalAirport,
@@ -26,6 +25,13 @@ const MainContainer = ({airports}) => {
         isFooterOpen: isFooterOpen,
       });
     }, [saveAirports, isRoundTrip, startingAirport, arrivalAirport, passengers, myFlightClass]);
+
+    useEffect(() => {
+      fetchFlightFootprints(saveAirports[0], saveAirports[1], passengers, myFlightClass)
+      .then(result => {
+        setFetchResults(result);
+      });
+    }, [saveAirports])
 
   return (
       <div className='flex flex-col items-center justify-center min-h-[750px] h-screen w-full overflow-hidden bg-plane-pattern'>
